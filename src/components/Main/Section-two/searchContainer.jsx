@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Container, ShortenButton, UrlInput,GreySection}  from "./searchContainerElements";
+import { Container, ShortenButton, UrlInput,GreySection,InputLabel,ErrorMessage}  from "./searchContainerElements";
 import ShortenedUrlCard from "./shortenedUrlCard";
 function SearchContainer() {
   const [url, setUrl] = useState("");
   const [searches, setSearches] = useState([]);
   const [search, setSearch] = useState(false);
   const [copiedIndex,setCopiedIndex] = useState(-1);
+  const [isError,setIsError] = useState(false);
   const handleClick = () => {
+    if(url===""){
+      setIsError(true);
+      return;
+    }
+    setIsError(false);
     setSearch(!search);
   };
   useEffect(() => {
@@ -42,11 +48,16 @@ function SearchContainer() {
   return (
     <GreySection>
       <Container>
+      <ErrorMessage>
         <UrlInput
+          id="url-input"
           value={url}
           placeholder="Shorten a link here..."
           onChange={handleInputChange}
+          isError={isError}
         />
+        <InputLabel isError={isError} for="url-input"><em>Please add a link</em></InputLabel>
+        </ErrorMessage>
         <ShortenButton onClick={handleClick}>Shorten It!</ShortenButton>
       </Container>
 

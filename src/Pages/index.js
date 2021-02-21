@@ -4,6 +4,8 @@ import Sidebar from "./../components/Sidebar/Sidebar";
 import StaticContainerHome from "../components/Main/Section-one/container";
 import SearchContainer from "../components/Main/Section-two/searchContainer";
 import AboutUsContainer from "../components/Main/Section-three/aboutUsContainer";
+import BoostSection from "../components/Main/BoostSection/BoostSection";
+import Footer from "../components/Footer/footer";
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,6 +19,8 @@ function Home() {
       <StaticContainerHome />
       <SearchContainer />
       <AboutUsContainer/>
+      <BoostSection/>
+      <Footer/>
     </>
   );
 }

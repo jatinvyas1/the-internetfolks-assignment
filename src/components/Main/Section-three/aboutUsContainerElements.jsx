@@ -19,6 +19,9 @@ export const Description = styled.div`
   width: 40%;
   text-align: center;
   font-size: 18px;
+  @media screen and (max-width:768px){
+      width: 80%;
+  }
 `;
 
 export const FeatureCard = styled.div`
@@ -32,6 +35,14 @@ export const FeatureCard = styled.div`
   padding:3%;
   border-radius:8px;
   z-index:1;
+  @media screen and (max-width:768px){
+        flex-direction: column;
+        width: 75%;
+        word-wrap: break-word;
+        text-align: center;
+        padding:2rem;
+        margin: 1.5rem 0;
+    }
 `;
 
 export const FeatureImage = styled.div`
@@ -47,6 +58,9 @@ export const FeatureImage = styled.div`
   top: -40px;
   left: 20%;
   transform: translateX(-50%);
+  @media screen and (max-width:768px){
+      left:50%;
+  }
   
 `;
 
@@ -55,6 +69,12 @@ export const FeatureCardContainer = styled.div`
     display:flex;
     justify-content: space-between;
     width: 75%;
+    @media screen and (max-width:768px){
+        flex-direction: column;
+        width: 100%;
+        align-items:center;
+        margin-top:4rem;
+    }
 `;
 
 export const CardHeading = styled.h3`
@@ -69,6 +89,9 @@ export const BlueConnector = styled.hr`
     position: relative;
     top:-14rem;
     z-index:0;
+    @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const CardText = styled.div`

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DesktopBackground from "./bg-shorten-desktop.svg";
+import MobileBackground from "./bg-shorten-mobile.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -9,13 +10,17 @@ export const Container = styled.div`
   height: 150px;
   width: 75%;
   justify-content: center;
+  padding-top:1.2rem;
   align-items: center;
   background-image: url(${DesktopBackground});
-  background-color: #35323e;
+  background-color: #3b3054;
   border-radius: 8px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    margin-top: 5rem;
+    width: 90%;
+    margin: 2rem 0 1rem 0 ;
+    top:0;
+    background-image: url(${MobileBackground})
   }
 `;
 
@@ -25,6 +30,8 @@ export const ShortenButton = styled.div`
   background: #2acfcf;
   padding: 0.9rem 5rem;
   color: #fff;
+  position:relative;
+  top:-.7rem;
   &:hover {
     transition: all 0.3s ease-in-out;
     background: #93e6e6;
@@ -42,22 +49,35 @@ export const ShortenButton = styled.div`
 
 export const UrlInput = styled.input`
   height: 3rem;
-  width: 60%;
+  width: 90%;
   font-size: 18px;
   border-radius: 8px;
   margin-right: 3rem;
-  border: none;
+  border: ${({isError})=>(isError?"2px solid #f46262":"none")};
   color: #35323e;
+  padding-left:2px;
   &:focus {
     outline: none;
   }
+  ::placeholder{
+    color:${({isError})=>(isError?"#f46262":"#bfbfbf")}
+  }
   @media screen and (max-width: 768px) {
-    margin: 2% 0;
-    height: 2rem;
-    width: 90%;
+    margin:  0;
+    height: 2.5rem;
+    width: 100%;
     transition: all 0.3s ease-in-out;
   }
 `;
+
+export const InputLabel = styled.label`
+  color:#f46262;
+  font-size:12px;
+  visibility:${({isError})=>(isError?"visible":"hidden")};
+  @media screen and (max-width: 768px) {
+    padding-bottom:6%;
+  }
+`
 
 export const CopyButton = styled.div`
   border-radius: 8px;
@@ -89,7 +109,7 @@ export const ShortenedUrlContainer = styled.div`
   vertical-align: middle;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    width: 73%;
+    width: 85%;
     height: auto;
     justify-content: center;
     align-items: center;
@@ -120,6 +140,7 @@ export const ShortenedUrl = styled.div`
 
 export const Rule = styled.hr`
   width: 100%;
+  color:#bfbfbf;
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -127,4 +148,19 @@ export const Rule = styled.hr`
 
 export const GreySection = styled.div`
   background: #eff1f7;
+  @media screen and (max-width: 768px){
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 `;
+
+export const ErrorMessage = styled.div`
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  @media screen and (max-width:768px){
+    width:90%;
+  }
+`

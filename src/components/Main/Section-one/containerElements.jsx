@@ -23,6 +23,9 @@ export const TagLine = styled.h1`
   line-height: 1.2;
   color: #35323e;
   margin-bottom: 0;
+  @media screen and (max-width:768px){
+    font-size:2.5rem;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -62,9 +65,12 @@ export const StartedButton = styled.div`
   padding: 16px 28px;
   border-radius: 240px/200px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin: 0 0 2rem 0;
   &:hover {
     transition: all 0.2s ease-in-out;
     opacity: 0.5;
+  }
+  @media screen and (max-width:768px){
+    width: 80%;
   }
 `;
