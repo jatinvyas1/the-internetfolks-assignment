@@ -32,8 +32,10 @@ export const Feature = styled.div`
 export const FeatureCard = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  @media screen and (max-width:768px){
+    justify-content: center;
   align-items: center;
+  }
 `;
 export const Link = styled.div`
   color: white;
